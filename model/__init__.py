@@ -11,3 +11,4 @@ Copyright (C) 2024 by Airscker(Yufeng), All Rights Reserved.
 from .Transformer import MultiHeadSelfAttention,TransformerBlock,TransformerModel
 from .Jastrow import JasShort
 from .FFN import FFNModel
+from ._base import BaseModel

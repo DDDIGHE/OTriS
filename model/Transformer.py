@@ -3,10 +3,11 @@ import numpy as np
 import jax.numpy as jnp
 import flax.linen as nn
 from functools import partial
+from ._base import BaseModel
 
 
 # Define Multi-head self-attention mechanism in JAX
-class MultiHeadSelfAttention(nn.Module):
+class MultiHeadSelfAttention(BaseModel):
     '''
     ## Multi-head self-attention mechanism
     ### Args:
@@ -50,7 +51,7 @@ class MultiHeadSelfAttention(nn.Module):
         return self.output(attention_output)
 
 # Define the Transformer block
-class TransformerBlock(nn.Module):
+class TransformerBlock(BaseModel):
     '''
     ## Transformer block
     ### Args:
@@ -91,7 +92,7 @@ class TransformerBlock(nn.Module):
         return self.layer_norm_2(out1 + ffn_output)
 
 # Define the full Transformer model
-class TransformerModel(nn.Module):
+class TransformerModel(BaseModel):
     masked: bool
     num_layers: int
     num_heads: int
